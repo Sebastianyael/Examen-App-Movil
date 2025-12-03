@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+
+
+import FlatListAlumnos from './Screens/pantallaUno' 
+import PantallaDos from './Screens/pantallaDos'
+
+
+type RootStackParamList = {
+    'FlatListAlumnos': undefined
+    'pantallaDos': { alumnoId: string; alumnoNombre: string }
+};
+
+
+const Stack = createStackNavigator<RootStackParamList>()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    <NavigationContainer>
+      
+      <Stack.Navigator initialRouteName="FlatListAlumnos">
+        <Stack.Screen 
+            name="FlatListAlumnos" 
+            component={FlatListAlumnos} 
+            options={{ title: 'Lista de Alumnos' }}
+        />
+        <Stack.Screen 
+            name="pantallaDos" 
+            component={PantallaDos} 
+            options={{ title: 'Detalle del Alumno' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
