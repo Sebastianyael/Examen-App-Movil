@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet, StatusBar, TouchableOpacity ,SafeAreaView} from "react-native";
-
+import Contenedor from "../Components/view";
 
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
@@ -38,10 +38,10 @@ export default function FlatListAlumnos() {
                 })
             }
         >
-            <View style={styles.info}>
+            <Contenedor >
                 <Text style={styles.nombre}>{item.nombre}</Text>
                 {item.grado ? <Text style={styles.grado}>{item.grado}</Text> : null}
-            </View>
+            </Contenedor>
         </TouchableOpacity>
     )
 
@@ -62,7 +62,7 @@ export default function FlatListAlumnos() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#F8FAFF",
+      
         paddingHorizontal: 16,
         paddingTop: 12,
     },
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingVertical: 12,
         paddingHorizontal: 10,
-        backgroundColor: "#FFFFFF",
+        
         borderRadius: 10,
         shadowColor: "#000",
         shadowOpacity: 0.04,
