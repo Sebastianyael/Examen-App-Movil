@@ -8,7 +8,7 @@ import ListaDeUsuarios from './Screens/APIUsuarios'
 
 import FlatListAlumnos from './Screens/pantallaUno' 
 import PantallaDos from './Screens/pantallaDos'
-
+import PantallaCamara from './Screens/camara';
 
 
 type RootStackParamList = {
@@ -16,6 +16,7 @@ type RootStackParamList = {
     'FlatListAlumnos': undefined
     'pantallaDos': { alumnoId: string; alumnoNombre: string }
     'ListaUsuarios': undefined; 
+    'camara':undefined
 };
 
 
@@ -49,6 +50,12 @@ export default function App() {
                     name="ListaUsuarios" 
                     component={ListaDeUsuarios} 
                     options={{ title: 'API REST Usuarios' }}
+                />
+
+                <Stack.Screen 
+                    name="camara" 
+                    component={PantallaCamara} 
+                    options={{ title: 'Camara' }}
                 />
 
                 
